@@ -54,7 +54,7 @@ The script build up `run_analysis` function, and the function will take nine par
 8. subject_test_path: the file path of subject_test.txt
 9. output_path: the file path you would like to store the tidy dataset created by the `run_analysis`
 
-The structure of `run_analysis` function code mainly have four different parts
+The structure of `run_analysis` function code mainly have several different parts as following:
 
 1. Part 1: Using `read_delim()` from readr package
     Loading feature file, and then cleaning, tidying the feature dataframe. Extracting the specific features info from the features dataframe.
@@ -65,5 +65,8 @@ The structure of `run_analysis` function code mainly have four different parts
 3. Part 3: Using `read_table()` from readr package
     Load the y_train.txt and y_test.txt, and merge the two imported data files into one dataframe. And then load the activity_labels.txt file into the dataframe, using activity labels data to transform the activity data from double into factor.
 
-4. Part 4:
-    
+4. Part 4: Using `read_table()` from readr package
+    Load the subject_train.txt and subject_test.txt, and merge them into one dataframe. For the use of calculating the mean value of each activity and subject.
+
+5. Part 5: Using `summarise_all()` from dplyr and `gather()` from tidyr
+    Use `summarise_all()` calculating the mean value of each extracted variable for each activity and subject. And then use `gather()` to make the summarized dataframe tidy.
